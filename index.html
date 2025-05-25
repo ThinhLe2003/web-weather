@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tra cứu thời tiết</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <div class="weather-container">
+    <h1>Tra cứu thời tiết</h1>
+    <input type="text" id="city-put" list="city-options" placeholder="Nhập tên thành phố" />
+    <datalist id="city-options"></datalist>
+    <button id="get-weather">Xem thời tiết</button>
+    <div class="weather-result" id="weather-result">
+      <h2 id="city-name"></h2>
+      <img id="weather-icon" src="" alt="" style="width: 100px; display: none;" />
+      <p>Nhiệt độ : <span id="temp"></span>°C</p>
+      <p>Trạng thái : <span id="desc"></span></p>
+      <p>Độ ẩm : <span id="humidity"></span>%</p>
+      <p>Thời gian hiện tại: <span id="local-time"></span></p>
+    </div>
+  </div>
+
+  <!-- Hiệu ứng động -->
+  <div id="weather-effect"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/* style.css */
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  background-size: cover;             /* Giúp ảnh phủ toàn bộ */
+  background-position: center center; /* Canh giữa ảnh */
+  background-repeat: no-repeat;       /* Không lặp ảnh */
+  min-height: 100vh;
+  background-image: url(./img/VietNam.jpg);
+  margin: 0;
+  transition: background-image 1s ease-in-out;
+  image-rendering: auto;              /* Giúp hình mượt hơn */
+  background-attachment: fixed;       /* Ảnh cố định khi cuộn */
+}
+
+
+.weather-container {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+input, button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #3a86ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #265ecf;
+}
+
+.weather-result {
+  opacity: 0;
+  transition: opacity 1s ease;
+  margin-top: 20px;
+}
+
+.weather-result.show {
+  opacity: 1;
+}
+
+#weather-icon {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  display: block;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+#suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive nhẹ */
+@media (max-width: 400px) {
+  .weather-container {
+    padding: 20px;
+  }
+}
+/* Khung hiệu ứng thời tiết */
+#weather-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Hiệu ứng mưa */
+.rain::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.imgur.com/NM7xCq8.png'); /* bạn có thể đổi ảnh */
+  animation: rainDrop 0.5s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes rainDrop {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Hiệu ứng tuyết */
+.snow::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.imgur.com/NkYzjL2.png'); /* ảnh bông tuyết */
+  animation: snowFall 3s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes snowFall {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Hiệu ứng nắng */
+.sun::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 223, 0, 0.3), transparent 70%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
